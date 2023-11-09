@@ -1,8 +1,5 @@
-import DAO.AlunoDAO;
-import entidade.Aluno;
-
-import java.io.File;
-import java.util.InputMismatchException;
+import DAO.ProfessorDAO;
+import entidade.Professor;
 import java.util.Scanner;
 
 public class App {
@@ -11,35 +8,36 @@ public class App {
         System.out.println(">>>> Sistema Universitário <<<<");
         while (true) {
             System.out.println("""
-                    [1] Cadastrar aluno
-                    [2] Editar aluno
-                    [3] Pesquisar aluno
-                    [4] Excluir aluno
+                    [1] Cadastrar professor
+                    [2] Editar professor
+                    [3] Pesquisar professor
+                    [4] Excluir professor
                     [5] sair
                     
                     """);
             int opcao = input.nextInt();
             switch (opcao) {
                 case 1: {
-                    //Aluno aluno = new Aluno(123, "susu");
-                    //new AlunoDAO().cadastrarAluno(aluno);
-                    break;
+
+                   /* Professor professor = new Professor(123, "susu");
+                    new ProfessorDAO().cadastrarProfessor(professor);
+                    break;*/
                 }
                 case 2: {
-                    Aluno aluno= new Aluno();
-                    System.out.println("Digite a matricula do aluno que deseja alterar: ");
+                    Professor professor= new Professor();
+                    ProfessorDAO professorDAO = new ProfessorDAO();
+                    System.out.println("Digite a matricula do professor que deseja alterar: ");
                     int mat=input.nextInt();
 
-                    System.out.println(aluno.getNome());
+                    System.out.println(professor.getNome());
 
                     System.out.println("Digite o nome para alteração: ");
                     String nome= input.next();
 
-                    aluno.setMatricula(mat);
-                    aluno.setNome(nome);
+                    professor.setMatricula(mat);
+                    professor.setNome(nome);
 
-                    AlunoDAO alunoDAO= new AlunoDAO();
-                    alunoDAO.editarAluno(aluno);
+                    professorDAO.editarProfessor(professor);
 
 
                     break;
