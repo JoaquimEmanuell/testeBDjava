@@ -8,7 +8,7 @@ import entidade.Aluno;
 
 public class AlunoDAO {
     public void cadastrarAluno(Aluno aluno) throws ClassNotFoundException {
-        String sql = "INSERT INTO aluno VALUES (?, ?)";
+        String sql = "INSERT INTO aluno VALUES (?, ?)"; 
 
         PreparedStatement ps = null;
 

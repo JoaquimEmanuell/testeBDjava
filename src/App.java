@@ -1,10 +1,9 @@
-import DAO.AlunoDAO;
-import entidade.Aluno;
+import DAO.ProfessorDAO;
+import entidade.Professor;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Aluno aluno = new Aluno(3, "Joacas");
-
-        new AlunoDAO().cadastrarAluno(aluno);
+        Professor professor = new Professor(1, "Ismayle");
+        new ProfessorDAO().cadastrarProfessor(professor);
     }
 }
