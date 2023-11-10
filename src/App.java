@@ -1,4 +1,6 @@
+import DAO.DisciplinaDAO;
 import DAO.ProfessorDAO;
+import entidade.Disciplina;
 import entidade.Professor;
 import java.util.Scanner;
 
@@ -12,7 +14,11 @@ public class App {
                     [2] Editar professor
                     [3] Pesquisar professor
                     [4] Excluir professor
-                    [5] sair
+                    [5] Cadastrar disciplina
+                    [6] Editar disciplina
+                    [7] Pesquisar disciplina
+                    [8] Excluir disciplina
+                    [9] sair
                     
                     """);
             int opcao = input.nextInt();
@@ -59,6 +65,45 @@ public class App {
                     professorDAO.excluir(mat);
                 }
                 case 5:{
+                    Disciplina disciplina = new Disciplina();
+                    DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
+                    System.out.println("Digite o código da disciplina: ");
+                    int codigo = input.nextInt();
+                    System.out.println("Digite o nome da disciplina: ");
+                    String nome = input.next();
+                    System.out.println("Digite a matricula do professor responsavel pela disciplina: ");
+                    int idProfessor = input.nextInt();
+
+                    disciplina.setNome(nome);
+                    disciplina.setCodigo(codigo);
+                    disciplina.setIdProfessor(idProfessor);
+
+                    disciplinaDAO.cadastrarDisciplina(disciplina);
+                }
+                case 6:{
+                    Disciplina disciplina = new Disciplina();
+                    DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
+                    System.out.println("Digite o codigo da disciplina que deseja alterar: ");
+                    int codigo = input.nextInt();
+                    System.out.println("Digite o nome para alteração: ");
+                    String nome = input.next();
+                    System.out.println("Digite a matrícula do professor resp. pela disciplina para alteração: ");
+                    int idProfessor = input.nextInt();
+
+                    disciplina.setCodigo(codigo);
+                    disciplina.setNome(nome);
+                    disciplina.setIdProfessor(idProfessor);
+
+                    disciplinaDAO.editarDisciplina(disciplina);
+                }
+                case 8:{
+                    DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
+                    System.out.println("Digite o código da disciplina que deseja excluir: ");
+                    int codigo = input.nextInt();
+
+                    disciplinaDAO.excluirDisciplina(codigo);
+                }
+                case 9:{
                     System.out.println("Saindo do sistema");
                     System.exit(1);
                     break;
