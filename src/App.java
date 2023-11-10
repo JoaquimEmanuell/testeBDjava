@@ -47,7 +47,7 @@ public class App {
                     professor.setNome(nome);
 
                     professorDAO.editarProfessor(professor);
-
+                    //
 
                     break;
                 }

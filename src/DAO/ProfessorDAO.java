@@ -21,6 +21,7 @@ public class ProfessorDAO {
         }
         catch (SQLException e) {
             e.printStackTrace();
+            //
         }
     }
     public void editarProfessor(Professor professor){
