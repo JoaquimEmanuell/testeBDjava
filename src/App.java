@@ -44,8 +44,6 @@ public class App {
                     System.out.println("Digite a matricula do professor que deseja alterar: ");
                     int mat=input.nextInt();
 
-                    System.out.println(professor.getNome());
-
                     System.out.println("Digite o nome para alteração: ");
                     String nome= input.next();
 
@@ -57,12 +55,21 @@ public class App {
 
                     break;
                 }
+                case 3:{
+                    ProfessorDAO professorDAO = new ProfessorDAO();
+                    System.out.println("Digite a matrícula do professor que deseja pesquisar: ");
+                    String nome = input.next();
+
+                    professorDAO.pesquisar(nome);
+                    break;
+                }
                 case 4:{
                     ProfessorDAO professorDAO = new ProfessorDAO();
                     System.out.println("Digite a matrícula do professor que deseja excluir: ");
                     int mat = input.nextInt();
 
                     professorDAO.excluir(mat);
+                    break;
                 }
                 case 5:{
                     Disciplina disciplina = new Disciplina();
@@ -79,6 +86,7 @@ public class App {
                     disciplina.setIdProfessor(idProfessor);
 
                     disciplinaDAO.cadastrarDisciplina(disciplina);
+                    break;
                 }
                 case 6:{
                     Disciplina disciplina = new Disciplina();
@@ -95,6 +103,8 @@ public class App {
                     disciplina.setIdProfessor(idProfessor);
 
                     disciplinaDAO.editarDisciplina(disciplina);
+
+                    break;
                 }
                 case 8:{
                     DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
@@ -102,6 +112,7 @@ public class App {
                     int codigo = input.nextInt();
 
                     disciplinaDAO.excluirDisciplina(codigo);
+                    break;
                 }
                 case 9:{
                     System.out.println("Saindo do sistema");
