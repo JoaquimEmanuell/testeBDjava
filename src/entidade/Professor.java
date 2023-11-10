@@ -3,6 +3,11 @@ package entidade;
 public class Professor {
     private int matricula;
     private String nome;
+
+    /*public Professor(int matricula, String nome) {
+        this.matricula = matricula;
+        this.nome = nome;
+    }*/
     
     public String getNome() {
         return nome;
