@@ -57,6 +57,22 @@ public class ProfessorDAO {
         }
     }
 
+    public void excluir(int matricula){
+        String sql = "DELETE FROM professor WHERE matricula = ?";
+
+        try{
+            PreparedStatement ps = null;
+            ps = Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, matricula);
+
+            ps.execute();
+            ps.close();
+        }
+        catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
      /*public void deletarTabela() {
         String sql = "DROP TABLE usuario";
 

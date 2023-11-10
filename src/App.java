@@ -18,10 +18,19 @@ public class App {
             int opcao = input.nextInt();
             switch (opcao) {
                 case 1: {
+                    Professor professor = new Professor();
+                    ProfessorDAO professorDAO = new ProfessorDAO();
+                    System.out.println("Digite a matrícula do professor: ");
+                    int mat = input.nextInt();
 
-                   /* Professor professor = new Professor(123, "susu");
-                    new ProfessorDAO().cadastrarProfessor(professor);
-                    break;*/
+                    System.out.println("Digite o nome do professor: ");
+                    String nome = input.next();
+
+                    professor.setMatricula(mat);
+                    professor.setNome(nome);
+
+                    professorDAO.cadastrarProfessor(professor);
+                    break;
                 }
                 case 2: {
                     Professor professor= new Professor();
@@ -41,6 +50,13 @@ public class App {
 
 
                     break;
+                }
+                case 4:{
+                    ProfessorDAO professorDAO = new ProfessorDAO();
+                    System.out.println("Digite a matrícula do professor que deseja excluir: ");
+                    int mat = input.nextInt();
+
+                    professorDAO.excluir(mat);
                 }
                 case 5:{
                     System.out.println("Saindo do sistema");
