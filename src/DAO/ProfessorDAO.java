@@ -1,5 +1,6 @@
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
 import conexao.Conexao;
 import entidade.Professor;
 
