@@ -44,8 +44,6 @@ public class App {
                     System.out.println("Digite a matricula do professor que deseja alterar: ");
                     int mat=input.nextInt();
 
-                    System.out.println(professor.getNome());
-
                     System.out.println("Digite o nome para alteração: ");
                     String nome= input.next();
 
