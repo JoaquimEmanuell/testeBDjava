@@ -5,6 +5,7 @@
     ],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "c:\\Users\\joaqu\\Downloads\\sqlite-jdbc-3.36.0.1.jar"
     ]
 }
