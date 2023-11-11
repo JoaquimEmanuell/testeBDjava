@@ -12,15 +12,14 @@ import entidade.Professor;
 public class DisciplinaDAO {
     ResultSet rs;
     public void cadastrarDisciplina(Disciplina disciplina) throws ClassNotFoundException {
-        String sql = "INSERT INTO disciplina VALUES (?, ?, ?)";
+        String sql = "INSERT INTO disciplina(nome, idProfessor) VALUES (?, ?)";
 
         PreparedStatement ps = null;
 
         try{
             ps = Conexao.getConexao().prepareStatement(sql);
-            ps.setInt(1, disciplina.getCodigo());
-            ps.setString(2, disciplina.getNome());
-            ps.setInt(3, disciplina.getIdProfessor());
+            ps.setString(1, disciplina.getNome());
+            ps.setInt(2, disciplina.getIdProfessor());
 
             ps.execute();
             ps.close();
@@ -83,7 +82,7 @@ public class DisciplinaDAO {
     }
 
     public void editarDisciplina(Disciplina disciplina){
-        String sql= "UPDATE disciplina SET nome =? AND idProfessor=? WHERE codigo=?";
+        String sql= "UPDATE disciplina SET nome=?, idProfessor=? WHERE codigo=?";
 
         System.out.println("nome: "+ disciplina.getNome());
         System.out.println("professor: " + disciplina.getIdProfessor());

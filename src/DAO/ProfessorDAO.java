@@ -12,14 +12,14 @@ public class ProfessorDAO {
     ResultSet rs;
 
     public void cadastrarProfessor(Professor professor) throws ClassNotFoundException {
-        String sql = "INSERT INTO professor VALUES (?, ?)";
+        String sql = "INSERT INTO professor(nome) VALUES (?)";
 
         PreparedStatement ps = null;
 
         try{
             ps = Conexao.getConexao().prepareStatement(sql);
-            ps.setInt(1, professor.getMatricula());
-            ps.setString(2, professor.getNome());
+           // ps.setInt(1, professor.getMatricula());
+            ps.setString(1, professor.getNome());
             ps.execute();
             ps.close();
 
