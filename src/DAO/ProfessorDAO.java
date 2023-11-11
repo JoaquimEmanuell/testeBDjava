@@ -22,6 +22,9 @@ public class ProfessorDAO {
             ps.setString(2, professor.getNome());
             ps.execute();
             ps.close();
+
+            System.out.println("Professor cadastrado com sucesso!\n\n");
+
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -43,14 +46,14 @@ public class ProfessorDAO {
                 professor.setNome(rs.getString("nome"));
 
                 listaProf.add(professor);
+                System.out.println("--------------------------------------");
+                System.out.println("MATRICULA: "+professor.getMatricula());
+                System.out.println("NOME: "+professor.getNome());
 
             }
-            for (int num=0; num<listaProf.size();num++){
-                listaProf.get(num).getMatricula();
-                listaProf.get(num).getNome();
 
-                System.out.println("nome: "+professor.getNome());
-            }
+
+
 
             pstmt.close();
         }
@@ -72,21 +75,31 @@ public class ProfessorDAO {
 
             pstmt.execute();
             pstmt.close();
+            System.out.println("Professor editado com sucesso!\n\n");
+
         }
         catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void exibir(Professor professor){
+    public void exibir(Professor professor, int mat){
         String sql= "SELECT * FROM professor WHERE matricula=?";
-
         try{
             PreparedStatement pstmt = null;
             pstmt = Conexao.getConexao().prepareStatement(sql);
+            pstmt.setInt(1,mat);
+            rs= pstmt.executeQuery();
 
-            pstmt.execute();
+            professor.setMatricula(rs.getInt("matricula"));
+            professor.setNome(rs.getString("nome"));
+
+            System.out.println("Dados do professor:");
+            System.out.println("MATRICULA: "+professor.getMatricula());
+            System.out.println("NOME: "+professor.getNome());
+
             pstmt.close();
+
         }
         catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -103,6 +116,8 @@ public class ProfessorDAO {
 
             ps.execute();
             ps.close();
+
+            System.out.println("Professor excluido com sucesso!\n\n");
         }
         catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
